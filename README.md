@@ -5,7 +5,7 @@
 Execute o arquivo `up-gitlab.sh` com a versão para subir o gitlab na versão community desejada
 
 ```sh
-$ ./up-gitlab.sh 14.9.2-ce.0
+$ ./up-gitlab.sh 14.9.2-ce.0 http://localhost
 ```
 
 ## Atualizar container

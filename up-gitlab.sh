@@ -1,7 +1,9 @@
 #!/bin/bash
 
 INSTALL_VERSION=$1
+EXTERNAL_URL=$2
 echo $INSTALL_VERSION
+echo $EXTERNAL_URL
 
 echo "-- delete container --"
 docker rm -f gitlab2
@@ -25,7 +27,7 @@ docker exec -u root gitlab2 bash -c "curl -sS https://packages.gitlab.com/instal
 
 echo "-- install gitlab --"
 (
-    docker exec -u root gitlab2 bash -c "EXTERNAL_URL="http://localhost/" apt install gitlab-ce=$INSTALL_VERSION -y"
+    docker exec -u root gitlab2 bash -c "EXTERNAL_URL="$EXTERNAL_URL" apt install gitlab-ce=$INSTALL_VERSION -y"
 ) &
 
 sleep 60
